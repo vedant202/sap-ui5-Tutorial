@@ -1,16 +1,13 @@
 sap.ui.define([
-    "sap/m/Text",
-    "sap/ui/core/mvc/XMLView"
-
-], (Text,XMLView) => {
+	"sap/ui/core/ComponentContainer"
+], (ComponentContainer) => {
 	"use strict";
-	alert("UI5 is ready");
 
-    // new Text({
-    //     text:"Hello World1"
-    // }).placeAt("content");
-
-    XMLView.create({
-        viewName:"ui5.walkthrough.view.App"
-    }).then((oView)=>oView.placeAt("content"))
+	new ComponentContainer({
+		name: "project1",
+		settings : {
+			id : "walkthrough"
+		},
+		async: true
+	}).placeAt("content");
 });

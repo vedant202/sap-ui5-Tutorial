@@ -1,35 +1,37 @@
-/**
- * eslint-disable @sap/ui5-jsdocs/no-jsdoc
- */
-
 sap.ui.define([
-        "sap/ui/core/UIComponent",
-        "sap/ui/Device",
-        "project1/model/models"
-    ],
-    function (UIComponent, Device, models) {
-        "use strict";
+   "sap/ui/core/UIComponent",
+   "sap/ui/model/json/JSONModel",
+   "sap/ui/model/resource/ResourceModel"
+], (UIComponent, JSONModel, ResourceModel) => {
+   "use strict";
 
-        return UIComponent.extend("project1.Component", {
-            metadata: {
-                manifest: "json"
-            },
+   return UIComponent.extend("project1.Component", {
+      metadata : {
+         "interfaces": ["sap.ui.core.IAsyncContentCreation"],
+         "rootView": {
+            "viewName": "project1.view.App",
+            "type": "XML",
+            "id": "app"
+         }
+      },
 
-            /**
-             * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-             * @public
-             * @override
-             */
-            init: function () {
-                // call the base component's init function
-                UIComponent.prototype.init.apply(this, arguments);
-
-                // enable routing
-                this.getRouter().initialize();
-
-                // set the device model
-                this.setModel(models.createDeviceModel(), "device");
+      init() {
+         // call the init function of the parent
+         UIComponent.prototype.init.apply(this, arguments);
+         // set data model
+         const oData = {
+            recipient : {
+               name : "World"
             }
-        });
-    }
-);
+         };
+         const oModel = new JSONModel(oData);
+         this.setModel(oModel);
+
+         // set i18n model
+         const i18nModel = new ResourceModel({
+            bundleName: "project1.i18n.i18n"
+         });
+         this.setModel(i18nModel, "i18n");
+      }
+   });
+});

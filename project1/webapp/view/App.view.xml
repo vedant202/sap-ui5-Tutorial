@@ -6,18 +6,18 @@
     </App>
 </mvc:View> -->
 <mvc:View 
-    controllerName="ui5.walkthrough.controller.App"
+    controllerName="project1.controller.App"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
     <Text id="text1" text="Hello World world 2" />
 
     <Input
-      value="{/receipent/name}"
-      description="Hello {/receipent/name}"
+      value="{/recipient/name}"
+      description="Hello {/recipient/name}"
       valueLiveUpdate="true"
       width="60%"/>
 
 
-    <Button id="button" text="{i18n>showHelloButtonText}" press=".onShowHello"></Button>
+    <Button id="button" text="{i18n>showHelloButtonText}" press=".onShowHello"/>
     
 </mvc:View>
