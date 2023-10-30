@@ -10,7 +10,7 @@
 		data-sap-ui-libs="sap.m"
 		data-sap-ui-compatVersion="edge"
 		data-sap-ui-async="true"
-		data-sap-ui-onInit="module:project1/index"
+		data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
 		data-sap-ui-resourceroots='{
 			"project1": "./"
 		}'>
@@ -18,6 +18,8 @@
 	</script>
 </head>
 <body class="sapUIBody" id="content">
+	<div data-sap-ui-component data-name="project1" data-id="container" data-settings='{"id" : "project1"}'></div>
+	
 
 </body>
 </html>
